@@ -15,8 +15,8 @@ Este é um projeto Spring Boot configurado para rodar com o banco de dados MySQL
 Primeiro, clone o repositório para a sua máquina local:
 
 ```bash
-git clone https://github.com/Firewarez/Sistema-de-LOja
-cd Sistema-de-LOja
+git https://github.com/Firewarez/Backend-Loja
+cd Backend-Loja
 ```
 
 ### 2. Instalar o Docker
