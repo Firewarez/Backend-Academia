@@ -12,6 +12,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "usuario")
 public class UserEntity {
+
+    //Definir aqui os atributos da tabela Usuario
+    //o metodo @column mapeia as variaveis java para SQL
+    //ao serem enviados para o JPA e posterior
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -35,6 +39,8 @@ public class UserEntity {
     @Column(name = "data_cadastro", nullable = false)
     private LocalDate DataCadastro;
 
+
+    //Os getters e setters da tabela Usuario
     public Long getId() {
         return id;
     }

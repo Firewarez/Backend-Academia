@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+//Recebe as requisições HTTP (como POST, GET, DELETE)
+//Conversa com o UserService
+//Retorna respostas HTTP com dados ou status
+
 @RestController
 @RequestMapping("/usuarios")
 public class UserController {

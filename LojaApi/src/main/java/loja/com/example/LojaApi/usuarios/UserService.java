@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+//Service define as regras de query: validações, lógicas, verificações, etc.
+
 public class UserService {
     @Autowired
     private UserRepository userRepository;
