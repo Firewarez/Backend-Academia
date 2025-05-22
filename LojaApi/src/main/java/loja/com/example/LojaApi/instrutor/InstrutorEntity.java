@@ -1,0 +1,87 @@
+package loja.com.example.LojaApi.instrutores;
+
+import java.time.LocalDate;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import loja.com.example.LojaApi.usuarios.UserEntity;
+
+@Entity
+@Table(name = "instructor")
+public class Instrutor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "user_id", insertable = false, updatable = false)
+    private UserEntity usuario;
+
+    @Column(name = "registro", length = 20)
+    private String registroProfissional;
+
+    @Column(name = "horario", length = 59)
+    private String horarioDisponivel;
+
+    @Column(name = "espec", length = 189)
+    private String especializacao;
+
+    // Construtor padrão
+    public Instrutor() {
+    }
+
+    // Construtor com campos obrigatórios
+    public Instrutor(UserEntity usuario, String registroProfissional, String especializacao) {
+        this.usuario = usuario;
+        this.registroProfissional = registroProfissional;
+        this.especializacao = especializacao;
+    }
+
+    // Getters e Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public UserEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UserEntity usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getRegistroProfissional() {
+        return registroProfissional;
+    }
+
+    public void setRegistroProfissional(String registroProfissional) {
+        this.registroProfissional = registroProfissional;
+    }
+
+    public String getHorarioDisponivel() {
+        return horarioDisponivel;
+    }
+
+    public void setHorarioDisponivel(String horarioDisponivel) {
+        this.horarioDisponivel = horarioDisponivel;
+    }
+
+    public String getEspecializacao() {
+        return especializacao;
+    }
+
+    public void setEspecializacao(String especializacao) {
+        this.especializacao = especializacao;
+    }
+}
