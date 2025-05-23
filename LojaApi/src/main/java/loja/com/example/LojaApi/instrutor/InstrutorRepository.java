@@ -1,4 +1,4 @@
-package loja.com.example.LojaApi.instrutores;
+package loja.com.example.LojaApi.instrutor;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;

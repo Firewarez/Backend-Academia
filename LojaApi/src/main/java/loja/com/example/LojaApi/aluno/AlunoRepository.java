@@ -1,4 +1,4 @@
-package loja.com.example.LojaApi.alunos;
+package loja.com.example.LojaApi.aluno;
 
 import java.util.List;
 import java.util.Optional;

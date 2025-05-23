@@ -1,4 +1,4 @@
-package loja.com.example.LojaApi.instrutores;
+package loja.com.example.LojaApi.instrutor;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -18,11 +18,9 @@ public class SecurityConfiguration {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
-				.authorizeHttpRequests((authorize) -> authorize
-						.anyRequest().authenticated()
-				)
-				.httpBasic(withDefaults())
-				.formLogin(withDefaults());
+				 .csrf().disable() // desativa proteção CSRF (útil para APIs REST)
+            .authorizeHttpRequests()
+                .anyRequest().permitAll();
 		return http.build();
 	}
 
