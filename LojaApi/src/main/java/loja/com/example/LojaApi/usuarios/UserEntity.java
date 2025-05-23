@@ -33,9 +33,6 @@ public class UserEntity {
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
-    @Column(length = 20)
-    private String telefone;
-
     @Column(name = "data_cadastro", nullable = false)
     private LocalDate DataCadastro;
 
@@ -79,14 +76,6 @@ public class UserEntity {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public LocalDate getDataCadastro() {
