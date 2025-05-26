@@ -6,7 +6,7 @@ import java.util.List;
 import loja.com.example.LojaApi.usuarios.UserEntity;
 import loja.com.example.LojaApi.planos.Plano;
 import loja.com.example.LojaApi.pagamentos.Pagamento;
-import loja.com.example.LojaApi.treinos.Treino;
+import loja.com.example.LojaApi.planilha.TreinoEntity;
 import loja.com.example.LojaApi.presencia.Presencia;
 
 @Entity
@@ -33,7 +33,7 @@ public class Aluno {
     private List<Pagamento> pagamentos;
 
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
-    private List<Treino> treinos;
+    private List<TreinoEntity> treinos;
 
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
     private List<Presencia> presencas;
@@ -89,11 +89,11 @@ public class Aluno {
         this.pagamentos = pagamentos;
     }
 
-    public List<Treino> getTreinos() {
+    public List<TreinoEntity> getTreinos() {
         return treinos;
     }
 
-    public void setTreinos(List<Treino> treinos) {
+    public void setTreinos(List<TreinoEntity> treinos) {
         this.treinos = treinos;
     }
 
