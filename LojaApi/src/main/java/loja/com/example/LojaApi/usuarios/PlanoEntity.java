@@ -1,7 +1,6 @@
-package loja.com.example.LojaApi.aluno;
+package loja.com.example.LojaApi.usuarios;
 
 import java.time.Duration;
-import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
