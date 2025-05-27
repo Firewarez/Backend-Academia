@@ -7,7 +7,7 @@ import loja.com.example.LojaApi.usuarios.UserEntity;
 import loja.com.example.LojaApi.usuarios.PlanoEntity;
 import loja.com.example.LojaApi.aluno.PagamentoEntity;
 import loja.com.example.LojaApi.planilha.TreinoEntity;
-import loja.com.example.LojaApi.presencia.Presencia;
+import loja.com.example.LojaApi.aluno.PresencaEntity;
 
 @Entity
 @Table(name = "aluno")
@@ -36,7 +36,7 @@ public class Aluno {
     private List<TreinoEntity> treinos;
 
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
-    private List<Presencia> presencas;
+    private List<PresencaEntity> presencas;
 
     // Construtores
     public Aluno() {
@@ -97,11 +97,11 @@ public class Aluno {
         this.treinos = treinos;
     }
 
-    public List<Presencia> getPresencas() {
+    public List<PresencaEntity> getPresencas() {
         return presencas;
     }
 
-    public void setPresencas(List<Presencia> presencas) {
+    public void setPresencas(List<PresencaEntity> presencas) {
         this.presencas = presencas;
     }
 }
