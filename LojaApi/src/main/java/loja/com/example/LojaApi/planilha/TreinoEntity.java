@@ -2,6 +2,8 @@ package loja.com.example.LojaApi.planilha;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import loja.com.example.LojaApi.aluno.Aluno;
+import loja.com.example.LojaApi.instrutor.Instrutor;
 
 @Entity
 @Table(name = "treino")
@@ -12,24 +14,20 @@ public class TreinoEntity {
     @Column(name = "id_treino")
     private Long id;
 
-    @Column(name = "id_aluno", nullable = false)
-    private Long alunoId; // fk do aluno
+    
 
-    // descomentar pra testar quando tiver feito a entidade aluno
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // @JoinColumn(name = "id_aluno", nullable = false)
-    // private AlunoEntity aluno;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_aluno", nullable = false)
+    private Aluno aluno;
 
-    @Column(name = "id_instrutor")
-    private Long instrutorId; // fk instrutor
+    
 
-    // mesma coisa do de cima com o instrutor
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // @JoinColumn(name = "id_instrutor", referencedColumnName = "id_usuario") // se pk da tabela instrutor = id_usuario
-    // private InstrutorEntity instrutor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_instrutor", referencedColumnName = "id_usuario") // se pk da tabela instrutor = id_usuario
+    private Instrutor instrutor;
 
     @Column(name = "data_treino")
-    private LocalDate dataTreino;
+    private LocalDate dataTreino = LocalDate.now();
 
     @Column(name = "tipo_treino", length = 100)
     private String tipoTreino;
@@ -46,21 +44,7 @@ public class TreinoEntity {
         this.id = id;
     }
 
-    public Long getAlunoId() {
-        return alunoId;
-    }
-
-    public void setAlunoId(Long alunoId) {
-        this.alunoId = alunoId;
-    }
-
-    public Long getInstrutorId() {
-        return instrutorId;
-    }
-
-    public void setInstrutorId(Long instrutorId) {
-        this.instrutorId = instrutorId;
-    }
+    
 
     public LocalDate getDataTreino() {
         return dataTreino;
@@ -86,22 +70,20 @@ public class TreinoEntity {
         this.observacoes = observacoes;
     }
 
-    // testar quando definirem a entidade aluno corretamente
-    /*
-    public AlunoEntity getAluno() {
+    public Aluno getAluno() {
         return aluno;
     }
 
-    public void setAluno(AlunoEntity aluno) {
+    public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
 
-    public InstrutorEntity getInstrutor() {
+    public Instrutor getInstrutor() {
         return instrutor;
     }
 
-    public void setInstrutor(InstrutorEntity instrutor) {
+    public void setInstrutor(Instrutor instrutor) {
         this.instrutor = instrutor;
     }
-    */
+
 }

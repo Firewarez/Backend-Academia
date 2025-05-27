@@ -1,28 +1,12 @@
 package loja.com.example.LojaApi.aluno;
 
 import java.util.List;
-import java.util.Optional;
 
-public class PresencaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-    public PresencaEntity save(PresencaEntity user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
-    }
+@Repository
+public interface PresencaRepository extends JpaRepository<PresencaEntity, Long> {
 
-    public List<PresencaEntity> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
-    }
-
-    public Optional<PresencaEntity> findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
-    }
-
-    public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
-    }
-    
+    List<PresencaEntity> findByAlunoId(Long alunoId);
 }

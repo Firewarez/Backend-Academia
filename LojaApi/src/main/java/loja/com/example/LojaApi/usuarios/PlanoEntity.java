@@ -1,6 +1,5 @@
 package loja.com.example.LojaApi.usuarios;
 
-import java.time.Duration;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +15,7 @@ public class PlanoEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "plano_id")
+    @Column(name = "id_plano")
     private Long id;
 
     @Column(nullable = false, length = 100)
@@ -25,8 +24,9 @@ public class PlanoEntity {
     @Column(nullable = false)
     private double preco;
 
-    @Column(nullable = false)
-    private Duration duracao;
+    @Column(name = "duracao_meses", nullable = false)
+    private Integer duracaoMeses;
+
 
     @Lob //Explicita no banco de dados o tipo texto podendo armazenar mais de 10,000 caracteres.
     private String descricao;
@@ -55,19 +55,19 @@ public class PlanoEntity {
         this.preco = preco;
     }
 
-    public Duration getDuracao() {
-        return duracao;
+    public Integer getDuracaoMeses() {
+        return duracaoMeses;
     }
 
-    public void setDuracao(Duration duracao) {
-        this.duracao = duracao;
+    public void setDuracaoMeses(Integer duracaoMeses) {
+        this.duracaoMeses = duracaoMeses;
     }
 
     public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao() {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 }

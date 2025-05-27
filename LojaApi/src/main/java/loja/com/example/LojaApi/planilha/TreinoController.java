@@ -1,6 +1,6 @@
 package loja.com.example.LojaApi.planilha;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ public class TreinoController {
 
     private final TreinoService treinoService;
 
-    @Autowired
+
     public TreinoController(TreinoService treinoService) {
         this.treinoService = treinoService;
     }

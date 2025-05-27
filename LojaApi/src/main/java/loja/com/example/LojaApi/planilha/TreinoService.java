@@ -1,9 +1,10 @@
 package loja.com.example.LojaApi.planilha;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,13 +12,16 @@ import java.util.Optional;
 public class TreinoService {
 
     private final TreinoRepository treinoRepository;
-    @Autowired
+
     public TreinoService(TreinoRepository treinoRepository) {
         this.treinoRepository = treinoRepository;
     }
 
     @Transactional
     public TreinoEntity criarTreino(TreinoEntity treino) {
+        if (treino.getDataTreino() == null) {
+            treino.setDataTreino(LocalDate.now());
+        }
         return treinoRepository.save(treino);
     }
 
@@ -37,8 +41,8 @@ public class TreinoService {
     public TreinoEntity atualizarTreino(Long id, TreinoEntity treinoAtualizado) {
         return treinoRepository.findById(id)
             .map(treinoExistente -> {
-                treinoExistente.setAlunoId(treinoAtualizado.getAlunoId());
-                treinoExistente.setInstrutorId(treinoAtualizado.getInstrutorId());
+                treinoExistente.setAluno(treinoAtualizado.getAluno());
+                treinoExistente.setInstrutor(treinoAtualizado.getInstrutor());
                 treinoExistente.setDataTreino(treinoAtualizado.getDataTreino());
                 treinoExistente.setTipoTreino(treinoAtualizado.getTipoTreino());
                 treinoExistente.setObservacoes(treinoAtualizado.getObservacoes());

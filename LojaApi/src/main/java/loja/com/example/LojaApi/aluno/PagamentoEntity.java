@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,6 +20,10 @@ public class PagamentoEntity {
     @Column(name = "pagamento_id")
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "id_aluno", nullable = false)
+    private Aluno aluno;
+
     @Column(name = "metodo_pagamento", nullable = false, length = 100)
     private String metododepagamento;
 
@@ -28,7 +34,7 @@ public class PagamentoEntity {
     private double valor;
 
     @Column(name = "data_pagamento", nullable = false)
-    private LocalDate DataPagamento;
+    private LocalDate dataPagamento; 
 
     public Long getId() {
         return id;
@@ -36,6 +42,14 @@ public class PagamentoEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     public String getMetododepagamento() {
@@ -63,10 +77,10 @@ public class PagamentoEntity {
     }
 
     public LocalDate getDatapagamento() {
-        return DataPagamento;
+        return dataPagamento;
     }
 
-    public void setDatapagamento() {
-        this.DataPagamento = DataPagamento;
+    public void setDatapagamento(LocalDate dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 }

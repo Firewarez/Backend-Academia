@@ -1,36 +1,39 @@
 package loja.com.example.LojaApi.instrutor;
 
-import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import loja.com.example.LojaApi.usuarios.UserEntity;
 
 @Entity
-@Table(name = "instructor")
+@Table(name = "instrutor")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Instrutor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "id_usuario", referencedColumnName = "user_id", insertable = false, updatable = false)
+    @OneToOne(fetch = FetchType.LAZY) // É uma boa prática usar LAZY aqui
+    @MapsId // <<< ADICIONE ESTA ANOTAÇÃO
+    @JoinColumn(name = "id_usuario", referencedColumnName = "user_id")
     private UserEntity usuario;
 
-    @Column(name = "registro", length = 20)
+    @Column(name = "registro_cref", length = 20)
     private String registroProfissional;
 
     @Column(name = "horario", length = 59)
     private String horarioDisponivel;
 
-    @Column(name = "espec", length = 189)
+    @Column(name = "especialidade", length = 189)
     private String especializacao;
 
     // Construtor padrão

@@ -5,9 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 import loja.com.example.LojaApi.usuarios.UserEntity;
 import loja.com.example.LojaApi.usuarios.PlanoEntity;
-import loja.com.example.LojaApi.aluno.PagamentoEntity;
 import loja.com.example.LojaApi.planilha.TreinoEntity;
-import loja.com.example.LojaApi.aluno.PresencaEntity;
 
 @Entity
 @Table(name = "aluno")
