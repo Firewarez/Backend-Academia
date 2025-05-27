@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 import loja.com.example.LojaApi.usuarios.UserEntity;
-import loja.com.example.LojaApi.planos.Plano;
-import loja.com.example.LojaApi.pagamentos.Pagamento;
+import loja.com.example.LojaApi.usuarios.PlanoEntity;
+import loja.com.example.LojaApi.aluno.PagamentoEntity;
 import loja.com.example.LojaApi.planilha.TreinoEntity;
 import loja.com.example.LojaApi.presencia.Presencia;
 
@@ -27,10 +27,10 @@ public class Aluno {
 
     @ManyToOne
     @JoinColumn(name = "id_plano", nullable = false)
-    private Plano plano;
+    private PlanoEntity plano;
 
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
-    private List<Pagamento> pagamentos;
+    private List<PagamentoEntity> pagamentos;
 
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
     private List<TreinoEntity> treinos;
@@ -42,7 +42,7 @@ public class Aluno {
     public Aluno() {
     }
 
-    public Aluno(UserEntity usuario, LocalDate dataInicio, Plano plano) {
+    public Aluno(UserEntity usuario, LocalDate dataInicio, PlanoEntity plano) {
         this.usuario = usuario;
         this.dataInicio = dataInicio;
         this.plano = plano;
@@ -73,19 +73,19 @@ public class Aluno {
         this.dataInicio = dataInicio;
     }
 
-    public Plano getPlano() {
+    public PlanoEntity getPlano() {
         return plano;
     }
 
-    public void setPlano(Plano plano) {
+    public void setPlano(PlanoEntity plano) {
         this.plano = plano;
     }
 
-    public List<Pagamento> getPagamentos() {
+    public List<PagamentoEntity> getPagamentos() {
         return pagamentos;
     }
 
-    public void setPagamentos(List<Pagamento> pagamentos) {
+    public void setPagamentos(List<PagamentoEntity> pagamentos) {
         this.pagamentos = pagamentos;
     }
 
