@@ -1,4 +1,4 @@
-package loja.com.example.LojaApi.usuarios;
+package loja.com.example.LojaApi.aluno;
 
 import java.util.List;
 
@@ -11,28 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/planos")
-public class PlanoController {
-
+@RequestMapping("/presença")
+public class PresencaController {
+    
     @Autowired
-    private PlanoService planoService;
+    private PresencaService presencaService;
 
     @GetMapping
-    public List<PlanoEntity> listar() {
-        return planoService.listarTodos();
+    public List<PresencaEntity> listar() {
+        return presencaService.listarTodos();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PlanoEntity> buscar(@PathVariable Long id) {
-        return planoService.buscarPorId(id)
+    public ResponseEntity<PresencaEntity> buscar(@PathVariable Long id) {
+        return presencaService.buscarPorId(id)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        planoService.deletar(id);
+    public ResponseEntity<PresencaEntity> deletar(@PathVariable Long id) {
+        presencaService.deletar(id);
         return ResponseEntity.noContent().build();
     }
 }
-
